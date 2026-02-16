@@ -6,7 +6,7 @@ project(ObjLoader)
 
 add_library(${PROJECT_NAME} STATIC)
 
-target_include_directories(${PROJECT_NAME} PRIVATE include)
+target_include_directories(${PROJECT_NAME} PUBLIC include)
 
 target_sources(${PROJECT_NAME}
     PRIVATE
