@@ -82,6 +82,10 @@ void ObjLoader::loadObj(const std::string& path) {
 
         std::string keyword{};
         ss >> keyword;
+
+        if (keyword.empty()) {
+            continue;
+        }
         if (keyword == "v") {
             // TODO: Optional weight values??
             std::string sx{}, sy{}, sz{};
