@@ -4,7 +4,7 @@ set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
 
 project(ObjLoader)
 
-add_library(${PROJECT_NAME})
+add_library(${PROJECT_NAME} STATIC)
 
 target_include_directories(${PROJECT_NAME} PRIVATE include)
 
