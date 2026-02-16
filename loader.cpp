@@ -171,7 +171,3 @@ std::vector<float> ObjLoader::getTexCoords() const {
 std::vector<FaceElement> ObjLoader::getElements() const {
     return elements;
 }
-
-int main() {
-    return 0;
-}
