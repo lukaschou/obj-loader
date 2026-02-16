@@ -1,3 +1,9 @@
+#include <cstdlib>
+#include <stdexcept>
+#include <fstream>
+#include <iostream>
+#include <sstream>
+
 #include "loader.h"
 
 ObjLoader::ObjLoader(){}
@@ -64,8 +70,7 @@ void ObjLoader::loadObj(const std::string& path) {
     std::ifstream inf{ path };
 
     if (!inf) {
-        std::cerr << "Error: Failed to open file " << path << std::endl;
-        std::exit(EXIT_FAILURE);
+        throw std::runtime_error("Failed to open file " + std::string(path));
     }
 
     std::string strInput{};
