@@ -35,7 +35,7 @@ FaceElement ObjLoader::parseFaceElement(const std::string& str) const {
     std::string::size_type endPos = 0;
     endPos = str.find("/");
     // There will always at least be a vertex index
-    element.vertexIndex = parseInt(str.substr(startPos, endPos));
+    element.vertexIndex = parseInt(str.substr(startPos, endPos)) - 1;
     if (endPos == std::string::npos) {
         return element;
     }
@@ -138,6 +138,7 @@ void ObjLoader::loadObj(const std::string& path) {
         } else if (keyword == "f") {
             // TODO: Negative references and variable x-sided faces
             std::string f1{}, f2{}, f3{};
+            std::cout << "Parsing line: " << strInput << std::endl;
             ss >> f1 >> f2 >> f3;
             try {
                 FaceElement firstFaceElement = parseFaceElement(f1);
