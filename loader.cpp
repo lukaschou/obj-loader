@@ -138,7 +138,6 @@ void ObjLoader::loadObj(const std::string& path) {
         } else if (keyword == "f") {
             // TODO: Negative references and variable x-sided faces
             std::string f1{}, f2{}, f3{};
-            std::cout << "Parsing line: " << strInput << std::endl;
             ss >> f1 >> f2 >> f3;
             try {
                 FaceElement firstFaceElement = parseFaceElement(f1);
@@ -150,7 +149,7 @@ void ObjLoader::loadObj(const std::string& path) {
                             (faceElement.normalIndex == -1 && elements.back().normalIndex > 0)) {
                         throw std::invalid_argument{"loadObj"}; 
                     }
-    
+                    elements.push_back(faceElement); 
                 }
             } catch (const std::invalid_argument& ia) {
                 std::cerr << "Error: Failed to parse face element component\n  Line" 
